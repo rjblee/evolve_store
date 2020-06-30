@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "654516340798",
+    "firebase_url": "https://evolve-store-cf71c.firebaseio.com",
+    "project_id": "evolve-store-cf71c",
+    "storage_bucket": "evolve-store-cf71c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654516340798:android:ee4e17c3f1990eba52e96f",
+        "android_client_info": {
+          "package_name": "ca.evolve.store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654516340798-m4o4urjk25d0at909chism797j5uvgk8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjrF2ShLjd4cFW5AnSsY3NXHGbpEypt8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654516340798-m4o4urjk25d0at909chism797j5uvgk8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
