@@ -6,38 +6,56 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  List<Widget> makeList(AsyncSnapshot snapshot) {
+  List<Widget> makeProductList(AsyncSnapshot snapshot) {
     return snapshot.data.documents.map<Widget>((document) {
-      return ListTile(
-        title: Text(document["name"]),
+      return Container(
+        padding: EdgeInsets.only(
+          bottom: 20,
+        ),
+        child: Column(
+          children: [
+            Text(document["name"]),
+            Text(document["price"].toString()),
+            Text(document["category"]),
+          ],
+        ),
       );
     }).toList();
   }
 
+  Widget BuildProducts() {
+    return StreamBuilder(
+      stream: Firestore.instance.collection('products').snapshots(),
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.waiting:
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          default:
+            return SizedBox(
+              height: 150,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: makeProductList(snapshot),
+              ),
+            );
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Evolve Store"),
-      ),
-      body: Container(
-        child: StreamBuilder(
-          stream: Firestore.instance.collection('evolve_items').snapshots(),
-          builder: (context, snapshot) {
-//            switch (snapshot.connectionState) {
-//              case ConnectionState.waiting:
-//                return Center(
-//                  child: CircularProgressIndicator(),
-//                );
-//              default:
-            return ListView(
-              children: [
-                makeList(snapshot),
-              ],
-            );
-//            }
-//            ;
-          },
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Evolve Store"),
+        ),
+        body: Column(
+          children: [
+            BuildProducts(),
+          ],
         ),
       ),
     );
