@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "654516340798",
-    "firebase_url": "https://evolve-store-cf71c.firebaseio.com",
-    "project_id": "evolve-store-cf71c",
-    "storage_bucket": "evolve-store-cf71c.appspot.com"
+    "project_number": "564203702718",
+    "firebase_url": "https://evolve-store-f55a6.firebaseio.com",
+    "project_id": "evolve-store-f55a6",
+    "storage_bucket": "evolve-store-f55a6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:654516340798:android:ee4e17c3f1990eba52e96f",
+        "mobilesdk_app_id": "1:564203702718:android:2f2362029aefc1076111ef",
         "android_client_info": {
-          "package_name": "ca.evolve.store"
+          "package_name": "com.example.evolvestore"
         }
       },
       "oauth_client": [
         {
-          "client_id": "654516340798-m4o4urjk25d0at909chism797j5uvgk8.apps.googleusercontent.com",
+          "client_id": "564203702718-q8u3r8r3koepgq1q28mch3ovi8odsqdc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBjrF2ShLjd4cFW5AnSsY3NXHGbpEypt8U"
+          "current_key": "AIzaSyCkpHgAqaadzLFh8WUPpMGjoePqG1z4Bk4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "654516340798-m4o4urjk25d0at909chism797j5uvgk8.apps.googleusercontent.com",
+              "client_id": "564203702718-q8u3r8r3koepgq1q28mch3ovi8odsqdc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
