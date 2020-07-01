@@ -9,8 +9,8 @@ class MyApp extends StatelessWidget {
   List<Widget> makeProductList(AsyncSnapshot snapshot) {
     return snapshot.data.documents.map<Widget>((document) {
       return Container(
-        padding: EdgeInsets.only(
-          bottom: 20,
+        padding: EdgeInsets.symmetric(
+          horizontal: 20,
         ),
         child: Column(
           children: [
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     }).toList();
   }
 
-  Widget BuildProducts() {
+  Widget buildProducts() {
     return StreamBuilder(
       stream: Firestore.instance.collection('products').snapshots(),
       builder: (context, snapshot) {
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            BuildProducts(),
+            buildProducts(),
           ],
         ),
       ),
