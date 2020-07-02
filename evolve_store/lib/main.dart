@@ -1,3 +1,4 @@
+import 'package:evolvestore/screens/product_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
