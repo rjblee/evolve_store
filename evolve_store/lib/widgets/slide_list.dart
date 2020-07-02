@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:evolvestore/screens/product_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -37,7 +38,10 @@ class _SlideListState extends State<SlideList> {
               ],
             ),
           ),
-//          onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => ProductPage());)},
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ProductPage()));
+          },
         );
       }).toList();
     }
