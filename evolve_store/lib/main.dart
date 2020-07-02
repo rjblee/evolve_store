@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
 //            color: Colors.grey[300],
             title: NeumorphicText(
               "Evolve Store",
-//              textAlign: ,
               style: NeumorphicStyle(
                 color: Colors.grey[900],
                 boxShape: NeumorphicBoxShape.circle(),
@@ -37,7 +36,7 @@ class MyApp extends StatelessWidget {
               textStyle: NeumorphicTextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'Lobster',
+//                fontFamily: 'Adamina',
               ),
             ),
             leading: NeumorphicButton(
