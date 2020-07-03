@@ -3,12 +3,12 @@ import 'package:evolvestore/screens/product_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-class SlideList extends StatefulWidget {
+class ProductSlideList extends StatefulWidget {
   @override
-  _SlideListState createState() => _SlideListState();
+  _ProductSlideListState createState() => _ProductSlideListState();
 }
 
-class _SlideListState extends State<SlideList> {
+class _ProductSlideListState extends State<ProductSlideList> {
   @override
   Widget build(BuildContext context) {
     List<Widget> makeProductList(AsyncSnapshot snapshot) {
