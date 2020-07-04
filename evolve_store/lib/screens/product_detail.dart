@@ -15,7 +15,7 @@ class ProductPage extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          color: Colors.grey[100],
+          color: Color(0xffEFF3F6),
           child: Stack(
             children: [
               CircleProductImage(),
