@@ -14,30 +14,33 @@ class ProductPage extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        body: Stack(
-          children: [
-            CircleProductImage(),
-            Column(
-              children: [
-                SizedBox(
-                  width: size.width,
-                  height: 350,
-                ),
-                SizedBox(
-                  height: size.height-350,
-                  child: ListView(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      OptionBox(),
-                      Textarea(title: "Bag", des: testdes),
-                      Textarea(title: "Bag", des: testdes),
-                    ],
+        body: Container(
+          color: Colors.grey[100],
+          child: Stack(
+            children: [
+              CircleProductImage(),
+              Column(
+                children: [
+                  SizedBox(
+                    width: size.width,
+                    height: size.height*0.48,
                   ),
-                )
-              ],
-            )
-          ],
+                  SizedBox(
+                    height: size.height-(size.height*0.48),
+                    child: ListView(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        OptionBox(),
+                        Textarea(title: "Bag", des: testdes),
+                        Textarea(title: "Bag", des: testdes),
+                      ],
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
