@@ -10,7 +10,7 @@ class OptionBox extends StatefulWidget {
 class _OptionBoxState extends State<OptionBox> {
   @override
   Widget build(BuildContext context) {
-    Widget OptionBoxDetail({color: Color}) {
+    Widget optionBoxDetail({color: Color}) {
       return Container(
         margin: EdgeInsets.only(right: 10),
         child: Neumorphic(
@@ -67,12 +67,12 @@ class _OptionBoxState extends State<OptionBox> {
           padding: EdgeInsets.all(15),
           child: Row(
             children: [
-              OptionBoxDetail(color: Colors.blueAccent),
-              OptionBoxDetail(color: Colors.greenAccent),
-              OptionBoxDetail(color: Colors.deepOrangeAccent),
-              OptionBoxDetail(color: Colors.black),
-              OptionBoxDetail(color: Colors.blueAccent),
-              OptionBoxDetail(color: Colors.greenAccent),
+              optionBoxDetail(color: Colors.blueAccent),
+              optionBoxDetail(color: Colors.greenAccent),
+              optionBoxDetail(color: Colors.deepOrangeAccent),
+              optionBoxDetail(color: Colors.black),
+              optionBoxDetail(color: Colors.blueAccent),
+              optionBoxDetail(color: Colors.greenAccent),
             ],
           ),
 //          style: NeumorphicStyle(
