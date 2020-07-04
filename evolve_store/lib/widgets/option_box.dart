@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -10,7 +11,7 @@ class OptionBox extends StatefulWidget {
 class _OptionBoxState extends State<OptionBox> {
   @override
   Widget build(BuildContext context) {
-    Widget Optionbox({color: Color}) {
+    Widget OptionBoxDetail({color: Color}) {
       return Container(
         margin: EdgeInsets.only(right: 10),
         child: Neumorphic(
@@ -29,29 +30,39 @@ class _OptionBoxState extends State<OptionBox> {
     }
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text("Choose the option:", style: TextStyle(
-                color: Colors.grey,
-                fontSize: 16
-            ),),
-            Text("See all", style: TextStyle(
-              color: Colors.greenAccent,
-            ),)
-          ],
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Choose the option:", style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 16
+              ),),
+              Text("See all", style: TextStyle(
+                color: Colors.lightGreen,
+              ),)
+            ],
+          ),
         ),
         Neumorphic(
           padding: EdgeInsets.all(15),
           child: Row(
             children: [
-              Optionbox(color: Colors.blueAccent),
-              Optionbox(color: Colors.greenAccent),
-              Optionbox(color: Colors.deepOrangeAccent),
-              Optionbox(color: Colors.black),
-              Optionbox(color: Colors.blueAccent),
-              Optionbox(color: Colors.greenAccent),
+              OptionBoxDetail(color: Colors.blueAccent),
+              OptionBoxDetail(color: Colors.greenAccent),
+              OptionBoxDetail(color: Colors.deepOrangeAccent),
+              OptionBoxDetail(color: Colors.black),
+              OptionBoxDetail(color: Colors.blueAccent),
+              OptionBoxDetail(color: Colors.greenAccent),
             ],
+          ),
+          style: NeumorphicStyle(
+            shape: NeumorphicShape.concave,
+            surfaceIntensity: 0.2,
+            intensity: 0.7,
+            depth: 4,
+            color: Color(0xffeef4fb),
           ),
         )
       ],
