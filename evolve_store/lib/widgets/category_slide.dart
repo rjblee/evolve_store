@@ -31,8 +31,7 @@ class _CategorySlideListState extends State<CategorySlideList> {
             margin: EdgeInsets.symmetric(horizontal: 10),
             child: Text(
               "Apparel",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold, color: Color(0xFF25d8bf)),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
             onPressed: () {},
           ),
@@ -40,8 +39,7 @@ class _CategorySlideListState extends State<CategorySlideList> {
             margin: EdgeInsets.symmetric(horizontal: 10),
             child: Text(
               "Electronics",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold, color: Color(0xFF25d8bf)),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
             onPressed: () {},
           ),
