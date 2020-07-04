@@ -8,12 +8,15 @@ class OptionBox extends StatefulWidget {
 }
 
 class _OptionBoxState extends State<OptionBox> {
+  bool isScroll = false;
+
   @override
   Widget build(BuildContext context) {
     Widget optionBoxDetail({color: Color}) {
       return Container(
-        margin: EdgeInsets.only(right: 10),
-        child: Neumorphic(
+        margin: EdgeInsets.symmetric(vertical: 3, horizontal: 5),
+        child: NeumorphicButton(
+          padding: EdgeInsets.all(0.0),
           style: NeumorphicStyle(
             depth: 10,
             shape: NeumorphicShape.convex,
@@ -24,6 +27,9 @@ class _OptionBoxState extends State<OptionBox> {
             height: 25,
             color: color,
           ),
+          onPressed: (){
+
+          },
         ),
       );
     }
@@ -39,11 +45,19 @@ class _OptionBoxState extends State<OptionBox> {
                 "Choose the option:",
                 style: TextStyle(color: Colors.grey, fontSize: 16),
               ),
-              Text(
-                "See all",
-                style: TextStyle(
-                  color: Colors.lightGreen,
+              GestureDetector(
+                child: Text(
+                  "See all",
+                  style: TextStyle(
+                    color: Colors.lightGreen,
+                  ),
                 ),
+                onTap: () {
+                  setState(() {
+                    isScroll = !isScroll;
+                  });
+                  print(isScroll);
+                },
               )
             ],
           ),
@@ -65,7 +79,9 @@ class _OptionBoxState extends State<OptionBox> {
                     spreadRadius: 3.0)
               ]),
           padding: EdgeInsets.all(15),
-          child: Row(
+          child:
+          isScroll?
+          Wrap(
             children: [
               optionBoxDetail(color: Colors.blueAccent),
               optionBoxDetail(color: Colors.greenAccent),
@@ -73,15 +89,35 @@ class _OptionBoxState extends State<OptionBox> {
               optionBoxDetail(color: Colors.black),
               optionBoxDetail(color: Colors.blueAccent),
               optionBoxDetail(color: Colors.greenAccent),
+              optionBoxDetail(color: Colors.blueAccent),
+              optionBoxDetail(color: Colors.greenAccent),
+              optionBoxDetail(color: Colors.deepOrangeAccent),
+              optionBoxDetail(color: Colors.black),
+              optionBoxDetail(color: Colors.blueAccent),
+              optionBoxDetail(color: Colors.greenAccent),
             ],
+          )
+              :
+          Container(
+            height: 30,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                optionBoxDetail(color: Colors.blueAccent),
+                optionBoxDetail(color: Colors.greenAccent),
+                optionBoxDetail(color: Colors.deepOrangeAccent),
+                optionBoxDetail(color: Colors.black),
+                optionBoxDetail(color: Colors.blueAccent),
+                optionBoxDetail(color: Colors.greenAccent),
+                optionBoxDetail(color: Colors.blueAccent),
+                optionBoxDetail(color: Colors.greenAccent),
+                optionBoxDetail(color: Colors.deepOrangeAccent),
+                optionBoxDetail(color: Colors.black),
+                optionBoxDetail(color: Colors.blueAccent),
+                optionBoxDetail(color: Colors.greenAccent),
+              ],
+            ),
           ),
-//          style: NeumorphicStyle(
-//            shape: NeumorphicShape.concave,
-//            surfaceIntensity: 0.2,
-//            intensity: 0.7,
-//            depth: 4,
-//            color: Color(0xffeef4fb),
-//          ),
         )
       ],
     );
