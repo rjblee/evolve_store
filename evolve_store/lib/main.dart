@@ -18,11 +18,18 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var productList;
   List selectedCategoryItems = [];
+  int selectedCategoryIndex = 0;
+  List categoryList = [
+    {'categoryName': 'All', 'categoryType': 'all'},
+    {'categoryName': 'Apparel', 'categoryType': 'apparel'},
+    {'categoryName': 'Electronics', 'categoryType': 'electronics'},
+    {'categoryName': 'Accessories', 'categoryType': 'accessories'},
+    {'categoryName': 'Gift Cards', 'categoryType': 'giftcard'},
+  ];
 
   @override
   initState() {
     getCategory();
-    print(productList);
   }
 
   void getCategory() {
@@ -38,81 +45,72 @@ class _MyAppState extends State<MyApp> {
 
       setState(() {
         productList = list;
+        selectedCategoryItems = list;
       });
-
     });
   }
 
   void filterByCategory(String categoryType) {
-    var filteredList=[];
-    productList.forEach(
-        (item) => {
-          if(item["category"] == categoryType) {
-            filteredList.add(item)
-          }
-        }
-    );
+    var filteredList = [];
+    productList.forEach((item) => {
+          if (item["category"] == categoryType) {filteredList.add(item)}
+        });
 
     setState(() {
       selectedCategoryItems = filteredList;
     });
-
-    print(filteredList);
   }
 
-  List<Widget> makeProductList(AsyncSnapshot snapshot) {
-    return snapshot.data.documents.map<Widget>((productItem) {
-      return NeumorphicButton(
-        margin: EdgeInsets.symmetric(horizontal: 15),
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: 0,
-          ),
-          child: Column(
-            children: [
-              Image.asset(
-                "assets/images/backpack.png",
-                height: 260,
-              ),
-              SizedBox(height: 14),
-              Text(
-                productItem["name"],
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "\$" + productItem["price"].toString(),
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Text(productItem["category"]),
-              Neumorphic(
-                padding: EdgeInsets.all(3),
-                style: NeumorphicStyle(
-                  color: Color(0xFF25d8bf),
-                  shape: NeumorphicShape.flat,
-                  depth: -10,
-                ),
-                child: Icon(
-                  Icons.search,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
+  Widget makeProductList(productItem) {
+    return NeumorphicButton(
+      margin: EdgeInsets.symmetric(horizontal: 15),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 0,
         ),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ProductPage()));
-        },
-      );
-    }).toList();
+        child: Column(
+          children: [
+            Image.asset(
+              "assets/images/backpack.png",
+              height: 260,
+            ),
+            SizedBox(height: 14),
+            Text(
+              productItem["name"],
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.left,
+            ),
+            Text(
+              "\$" + productItem["price"].toString(),
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text(productItem["category"]),
+            Neumorphic(
+              padding: EdgeInsets.all(3),
+              style: NeumorphicStyle(
+                color: Color(0xFF25d8bf),
+                shape: NeumorphicShape.flat,
+                depth: -10,
+              ),
+              child: Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+      onPressed: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ProductPage()));
+      },
+    );
   }
 
-  Widget categoryItem({categoryName: String, active: false, categoryType: String}) {
-    bool isActive = active ? active : false;
+  Widget categoryItem({categoryName: String, active: false, categoryType: String, itemIndex: int}) {
     return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
@@ -136,11 +134,20 @@ class _MyAppState extends State<MyApp> {
           categoryName,
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: isActive ? Color(0xFF25d8bf) : Colors.grey),
+              color: selectedCategoryIndex == itemIndex ? Color(0xFF25d8bf) : Colors.grey),
         ),
       ),
       onTap: () {
-        filterByCategory(categoryType);
+        if(itemIndex == 0) {
+          setState(() {
+            selectedCategoryItems = productList;
+          });
+        }else {
+          filterByCategory(categoryType);
+        }
+        setState(() {
+          selectedCategoryIndex = itemIndex;
+        });
       },
     );
   }
@@ -186,40 +193,36 @@ class _MyAppState extends State<MyApp> {
           ),
           body: Column(
             children: [
-              SizedBox(
-                height: 80,
-                child: ListView(
-                  padding: EdgeInsets.all(20),
+              Container(
+                height: 70,
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  children: [
-                    categoryItem(categoryName: "All", active: true),
-                    categoryItem(categoryName: "Apparel", categoryType: "apparel"),
-                    categoryItem(categoryName: "Electronics",categoryType: "electronics"),
-                    categoryItem(categoryName: "Accessories",categoryType: "accessories"),
-                    categoryItem(categoryName: "Gift Cards", categoryType: "giftcard"),
-                  ],
+                  itemCount: categoryList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      padding: EdgeInsets.symmetric(vertical: 15),
+                      child: categoryItem(
+                        categoryName: categoryList[index]['categoryName'],
+                        categoryType: categoryList[index]['categoryType'],
+                        itemIndex: index,
+                      ),
+                    );
+                  },
                 ),
               ),
-              StreamBuilder(
-                stream: Firestore.instance.collection('products').snapshots(),
-                builder: (context, snapshot) {
-                  switch (snapshot.connectionState) {
-                    case ConnectionState.waiting:
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    default:
-                      return SizedBox(
-                        height: 400,
-                        child: ListView(
-                          padding: EdgeInsets.all(10),
-                          scrollDirection: Axis.horizontal,
-                          children: makeProductList(snapshot),
-                        ),
-                      );
-                  }
-                },
-              ),
+
+              SizedBox(
+                height: 400,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: selectedCategoryItems.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                        child: makeProductList(selectedCategoryItems[index])
+                    );
+                  },
+                ),
+              )
             ],
           ),
           bottomNavigationBar: Neumorphic(
