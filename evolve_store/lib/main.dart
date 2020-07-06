@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  Widget makeProductList(productItem) {
+  Widget makeProductList(productItem, context) {
     return NeumorphicButton(
       margin: EdgeInsets.symmetric(horizontal: 15),
       child: Container(
@@ -218,7 +218,7 @@ class _MyAppState extends State<MyApp> {
                   itemCount: selectedCategoryItems.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                        child: makeProductList(selectedCategoryItems[index])
+                        child: makeProductList(selectedCategoryItems[index], context),
                     );
                   },
                 ),
