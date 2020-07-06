@@ -26,7 +26,7 @@ class ProductPage extends StatelessWidget {
                     height: size.height*0.48,
                   ),
                   SizedBox(
-                    height: size.height-(size.height*0.48),
+                    height: size.height-(size.height*0.48) - 50,
                     child: ListView(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       scrollDirection: Axis.vertical,
@@ -36,6 +36,15 @@ class ProductPage extends StatelessWidget {
                         Textarea(title: "Bag", des: testdes),
                       ],
                     ),
+                  ),
+                  Row(
+                    children: [
+                      GestureDetector(
+                        child: Container(
+                          
+                        ),
+                      )
+                    ],
                   )
                 ],
               )
