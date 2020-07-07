@@ -70,9 +70,10 @@ class _MyAppState extends State<MyApp> {
         ),
         child: Column(
           children: [
-            Image.asset(
-              "assets/images/backpack.png",
+            Image.network(
+              productItem["image"],
               height: 260,
+              width: 250,
             ),
             SizedBox(height: 14),
             Text(
@@ -105,12 +106,18 @@ class _MyAppState extends State<MyApp> {
       ),
       onPressed: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ProductPage()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => ProductPage(productDetail: productItem)));
       },
     );
   }
 
-  Widget categoryItem({categoryName: String, active: false, categoryType: String, itemIndex: int}) {
+  Widget categoryItem(
+      {categoryName: String,
+      active: false,
+      categoryType: String,
+      itemIndex: int}) {
     return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
@@ -134,15 +141,17 @@ class _MyAppState extends State<MyApp> {
           categoryName,
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: selectedCategoryIndex == itemIndex ? Color(0xFF25d8bf) : Colors.grey),
+              color: selectedCategoryIndex == itemIndex
+                  ? Color(0xFF25d8bf)
+                  : Colors.grey),
         ),
       ),
       onTap: () {
-        if(itemIndex == 0) {
+        if (itemIndex == 0) {
           setState(() {
             selectedCategoryItems = productList;
           });
-        }else {
+        } else {
           filterByCategory(categoryType);
         }
         setState(() {
@@ -210,7 +219,6 @@ class _MyAppState extends State<MyApp> {
                   },
                 ),
               ),
-
               SizedBox(
                 height: 400,
                 child: ListView.builder(
@@ -218,7 +226,8 @@ class _MyAppState extends State<MyApp> {
                   itemCount: selectedCategoryItems.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                        child: makeProductList(selectedCategoryItems[index], context),
+                      child: makeProductList(
+                          selectedCategoryItems[index], context),
                     );
                   },
                 ),
