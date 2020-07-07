@@ -1,4 +1,5 @@
 import 'package:evolvestore/widgets/circle_product_image.dart';
+import 'package:evolvestore/widgets/custom_neumorphic.dart';
 import 'package:evolvestore/widgets/option_box.dart';
 import 'package:evolvestore/widgets/TextArea.dart';
 import 'package:flutter/cupertino.dart';
@@ -41,22 +42,55 @@ class ProductPage extends StatelessWidget {
                     height: size.height * 0.48,
                   ),
                   SizedBox(
-                    height: size.height - (size.height * 0.48) - 50,
+                    height: size.height - (size.height * 0.48) - 60,
                     child: ListView(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       scrollDirection: Axis.vertical,
                       children: [
                         OptionBox(),
                         Textarea(title: name, des: description),
+                        Textarea(title: name, des: description),
+                        Textarea(title: name, des: description),
                       ],
                     ),
                   ),
-                  Row(
-                    children: [
-                      GestureDetector(
-                        child: Container(),
-                      )
-                    ],
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    child: Container(
+                      height: 60,
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                            child: CustomNeumorphic(
+                              width: 40,
+                              height: 40,
+                              child: Icon(Icons.remove, color: Colors.grey),
+                            ),
+                            onTap: (){},
+                          ),
+                          Text("1", style: TextStyle(fontWeight: FontWeight.bold),),
+                          GestureDetector(
+                            child: CustomNeumorphic(
+                              width: 40,
+                              height: 40,
+                              child: Icon(Icons.add,color: Colors.grey,),
+                            ),
+                            onTap: (){},
+                          ),
+                          GestureDetector(
+                            child: CustomNeumorphic(
+                              width: 150,
+                              height: 40,
+                              child: Center(child: Text("View Cart  >", style: TextStyle(color: Colors.grey),)),
+                            ),
+                            onTap: (){},
+                          ),
+                        ],
+                      ),
+                    ),
                   )
                 ],
               )
