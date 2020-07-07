@@ -1,4 +1,4 @@
-import 'package:evolvestore/widgets/costume_neumorphic.dart';
+import 'package:evolvestore/widgets/custom_neumorphic.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -10,7 +10,7 @@ class OptionBox extends StatefulWidget {
 
 class _OptionBoxState extends State<OptionBox> {
   bool isScroll = false;
-  CostumeNeumorphic neumorphicBox = CostumeNeumorphic();
+  CustomNeumorphic neumorphicBox = CustomNeumorphic();
 
   @override
   Widget build(BuildContext context) {
@@ -64,11 +64,8 @@ class _OptionBoxState extends State<OptionBox> {
             ],
           ),
         ),
-        Container(
-          decoration: BoxDecoration(
-              color: Color(0XFFEFF3F6),
-              borderRadius: BorderRadius.circular(10.0),
-              boxShadow: neumorphicBox.decorationNeumorphic()),
+        CustomNeumorphic(
+          radius: 10,
           padding: EdgeInsets.all(15),
           child:
           isScroll?
