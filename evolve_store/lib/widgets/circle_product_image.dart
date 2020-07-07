@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class CircleProductImage extends StatelessWidget {
+  String imageURL;
+  CircleProductImage({this.imageURL});
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -26,11 +29,11 @@ class CircleProductImage extends StatelessWidget {
         ),
         child: Container(
           padding: EdgeInsets.only(bottom: 30),
-          width: size.width*0.7,
-          height: size.height*0.4,
+          width: size.width * 0.7,
+          height: size.height * 0.4,
           color: Colors.transparent,
-          child: Image.asset(
-            "assets/images/backpack.png",
+          child: Image.network(
+            imageURL,
             height: 150,
             width: 150,
             fit: BoxFit.contain,
