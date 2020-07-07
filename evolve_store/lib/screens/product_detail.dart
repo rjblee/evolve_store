@@ -49,8 +49,6 @@ class ProductPage extends StatelessWidget {
                       children: [
                         OptionBox(),
                         Textarea(title: name, des: description),
-                        Textarea(title: name, des: description),
-                        Textarea(title: name, des: description),
                       ],
                     ),
                   ),
