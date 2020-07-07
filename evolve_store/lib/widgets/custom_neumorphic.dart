@@ -14,7 +14,7 @@ class CustomNeumorphic extends StatelessWidget {
       {this.topShadow,
       this.bottomShadow,
       this.radius: 10.0,
-      this.background: const Color(0XFFEFF3F6),
+      this.background: const Color(0XFFEFF3F4),
       this.child,
       this.padding,
       this.width,
