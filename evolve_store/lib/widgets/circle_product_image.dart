@@ -22,10 +22,12 @@ class CircleProductImage extends StatelessWidget {
         style: NeumorphicStyle(
           boxShape: NeumorphicBoxShape.circle(),
           depth: -10,
-          intensity: 0.9,
-          surfaceIntensity: 0.9,
+          intensity: 0.8,
+          surfaceIntensity: 0.5,
           shape: NeumorphicShape.flat,
-          color: Color(0xffe3edf4),
+//          color: Color(0xffe3edf4),
+        lightSource: LightSource.bottom,
+          color: Color(0xffe3ecf3),
         ),
         child: Container(
           padding: EdgeInsets.only(bottom: 30),
