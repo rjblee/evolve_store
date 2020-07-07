@@ -7,8 +7,10 @@ class CustomNeumorphic extends StatelessWidget {
   Color background;
   Widget child;
   EdgeInsets padding;
+  EdgeInsets margin;
   double width;
   double height;
+  AlignmentGeometry alignment;
 
   CustomNeumorphic(
       {this.topShadow,
@@ -18,7 +20,9 @@ class CustomNeumorphic extends StatelessWidget {
       this.child,
       this.padding,
       this.width,
-      this.height});
+      this.height,
+      this.margin,
+      this.alignment});
 
   List<BoxShadow> MakeShadow() {
     topShadow = topShadow != null
@@ -61,6 +65,8 @@ class CustomNeumorphic extends StatelessWidget {
       height: height ?? this.height,
       padding: padding ?? this.padding,
       child: child ?? this.child,
+      margin: margin ?? this.margin,
+      alignment: alignment ?? this.alignment,
       decoration: BoxDecoration(
         color: background,
         borderRadius: BorderRadius.circular(radius),
