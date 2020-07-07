@@ -51,7 +51,7 @@ class _OptionBoxState extends State<OptionBox> {
                 child: Text(
                   "See all",
                   style: TextStyle(
-                    color: Colors.lightGreen,
+                    color: Color(0xFF25d8bf),
                   ),
                 ),
                 onTap: () {
