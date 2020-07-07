@@ -54,10 +54,10 @@ class _ProductSlideListState extends State<ProductSlideList> {
               ],
             ),
           ),
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ProductPage()));
-          },
+//          onPressed: () {
+//            Navigator.push(context,
+//                MaterialPageRoute(builder: (context) => ProductPage()));
+//          },
         );
       }).toList();
     }
