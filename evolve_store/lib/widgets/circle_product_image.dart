@@ -10,7 +10,7 @@ class CircleProductImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Positioned(
-      top: -(size.height * 0.35),
+      top: -(size.height * 0.3),
       left: -(size.width * 0.21),
       child: Neumorphic(
         padding: EdgeInsets.only(
@@ -30,7 +30,8 @@ class CircleProductImage extends StatelessWidget {
           color: Color(0xffe3ecf3),
         ),
         child: Container(
-          padding: EdgeInsets.only(bottom: 30),
+          padding: EdgeInsets.only(bottom: size.height * 0.07),
+//          margin: EdgeInsets.only(bottom: 30),
           width: size.width * 0.7,
           height: size.height * 0.4,
           color: Colors.transparent,
@@ -39,7 +40,7 @@ class CircleProductImage extends StatelessWidget {
             height: 150,
             width: 150,
             fit: BoxFit.contain,
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment.topCenter,
           ),
         ),
       ),
