@@ -1,7 +1,7 @@
 import 'package:evolvestore/widgets/circle_product_image.dart';
-import 'package:evolvestore/widgets/custom_neumorphic.dart';
 import 'package:evolvestore/widgets/option_box.dart';
 import 'package:evolvestore/widgets/TextArea.dart';
+import 'package:evolvestore/widgets/purchase_button_set.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -55,40 +55,7 @@ class ProductPage extends StatelessWidget {
                   Positioned(
                     bottom: 0,
                     left: 0,
-                    child: Container(
-                      height: 60,
-                      decoration: BoxDecoration(),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          GestureDetector(
-                            child: CustomNeumorphic(
-                              width: 40,
-                              height: 40,
-                              child: Icon(Icons.remove, color: Colors.grey),
-                            ),
-                            onTap: (){},
-                          ),
-                          Text("1", style: TextStyle(fontWeight: FontWeight.bold),),
-                          GestureDetector(
-                            child: CustomNeumorphic(
-                              width: 40,
-                              height: 40,
-                              child: Icon(Icons.add,color: Colors.grey,),
-                            ),
-                            onTap: (){},
-                          ),
-                          GestureDetector(
-                            child: CustomNeumorphic(
-                              width: 150,
-                              height: 40,
-                              child: Center(child: Text("View Cart  >", style: TextStyle(color: Colors.grey),)),
-                            ),
-                            onTap: (){},
-                          ),
-                        ],
-                      ),
-                    ),
+                    child: PurchaseButtonSet(),
                   )
                 ],
               )
