@@ -1,9 +1,9 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:evolvestore/widgets/custom_neumorphic.dart';
 import 'package:evolvestore/widgets/product_slide.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -48,19 +48,29 @@ class _HomePageState extends State<HomePage> {
   void filterByCategory(String categoryType) {
     var filteredList = [];
     productList.forEach((item) => {
-      if (item["category"] == categoryType) {filteredList.add(item)}
-    });
+          if (item["category"] == categoryType) {filteredList.add(item)}
+        });
 
     setState(() {
       selectedCategoryItems = filteredList;
     });
   }
 
+  _launchURL() async {
+    const url = 'https://www.evolvebranding.ca';
+    if (await canLaunch(url)) {
+      await launch(url);
+      print(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   Widget categoryItem(
       {categoryName: String,
-        active: false,
-        categoryType: String,
-        itemIndex: int}) {
+      active: false,
+      categoryType: String,
+      itemIndex: int}) {
     return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
@@ -106,7 +116,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return NeumorphicApp(
       theme: NeumorphicThemeData(
         baseColor: Color(0xFFf4faff),
@@ -116,16 +125,22 @@ class _HomePageState extends State<HomePage> {
       home: Neumorphic(
         child: Scaffold(
           appBar: NeumorphicAppBar(
-//            color: Color(0xFF25d8bf),
-            title: NeumorphicText(
-              "Evolve Store",
-              style: NeumorphicStyle(
-                color: Colors.grey[900],
-                boxShape: NeumorphicBoxShape.circle(),
-              ),
-              textStyle: NeumorphicTextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
+            color: Color(0xFF1ed1b4),
+//            color: Colors.grey[800],
+            title: Center(
+              child: NeumorphicText(
+                "Evolve Shop",
+                style: NeumorphicStyle(
+//                  color: Colors.grey[900],
+                  color: Colors.grey[100],
+
+                  boxShape: NeumorphicBoxShape.circle(),
+                ),
+                textStyle: NeumorphicTextStyle(
+                  fontSize: 30,
+                  fontFamily: 'Lobster',
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             leading: NeumorphicButton(
@@ -136,10 +151,26 @@ class _HomePageState extends State<HomePage> {
               style: NeumorphicStyle(
                 depth: 5,
                 boxShape:
-                NeumorphicBoxShape.roundRect(BorderRadius.circular(10)),
+                    NeumorphicBoxShape.roundRect(BorderRadius.circular(18)),
               ),
               onPressed: () {},
             ),
+            actions: [
+              NeumorphicButton(
+                child: Icon(
+                  Icons.shop,
+                  color: Color(0xFF25d8bf),
+                ),
+                style: NeumorphicStyle(
+                  depth: 5,
+                  boxShape:
+                      NeumorphicBoxShape.roundRect(BorderRadius.circular(18)),
+                ),
+                onPressed: () {
+                  _launchURL();
+                },
+              ),
+            ],
           ),
           body: Column(
             children: [
@@ -205,3 +236,11 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+//_launchURL() async {
+//  const url = 'https://flutter.dev';
+//  if (await canLaunch(url)) {
+//    await launch(url);
+//  } else {
+//    throw 'Could not launch $url';
+//  }
+//}
