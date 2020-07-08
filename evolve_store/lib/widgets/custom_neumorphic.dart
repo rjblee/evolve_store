@@ -11,6 +11,8 @@ class CustomNeumorphic extends StatelessWidget {
   double width;
   double height;
   AlignmentGeometry alignment;
+  double depth;
+  bool negative;
 
   CustomNeumorphic(
       {this.topShadow,
@@ -22,37 +24,20 @@ class CustomNeumorphic extends StatelessWidget {
       this.width,
       this.height,
       this.margin,
-      this.alignment});
+      this.alignment,
+      this.depth: 1,
+      this.negative: false});
 
   List<BoxShadow> MakeShadow() {
-    topShadow = topShadow != null
-        ? topShadow
-        : {
-            'R': 0,
-            'G': 0,
-            'B': 0,
-            'O': 0.1,
-          };
-
-    bottomShadow = bottomShadow != null
-        ? bottomShadow
-        : {
-            'R': 255,
-            'G': 255,
-            'B': 255,
-            'O': 0.9,
-          };
     return [
       BoxShadow(
-          color: Color.fromRGBO(
-              topShadow['R'], topShadow['G'], topShadow['B'], topShadow['O']),
-          offset: Offset(6, 2),
+          color: Color.fromRGBO(0,0,0, depth*0.01 + 0.1),
+          offset: negative ? Offset(-6, -2): Offset(6, 2),
           blurRadius: 6.0,
           spreadRadius: 3.0),
       BoxShadow(
-          color: Color.fromRGBO(bottomShadow['R'], bottomShadow['G'],
-              bottomShadow['B'], bottomShadow['O']),
-          offset: Offset(-6, -2),
+          color: Color.fromRGBO(255,255,255, 0.9),
+          offset: negative ? Offset(6, 2): Offset(-6, -2),
           blurRadius: 6.0,
           spreadRadius: 3.0)
     ];
