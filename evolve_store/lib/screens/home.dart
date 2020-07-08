@@ -72,31 +72,17 @@ class _HomePageState extends State<HomePage> {
       categoryType: String,
       itemIndex: int}) {
     return GestureDetector(
-      child: Container(
-        decoration: BoxDecoration(
-            color: Color(0XFFEFF3F6),
-            borderRadius: BorderRadius.circular(10.0),
-            boxShadow: [
-              BoxShadow(
-                  color: Color.fromRGBO(0, 0, 0, 0.1),
-                  offset: Offset(6, 2),
-                  blurRadius: 6.0,
-                  spreadRadius: 3.0),
-              BoxShadow(
-                  color: Color.fromRGBO(255, 255, 255, 0.9),
-                  offset: Offset(-6, -2),
-                  blurRadius: 6.0,
-                  spreadRadius: 3.0)
-            ]),
+      child: CustomNeumorphic(
         margin: EdgeInsets.symmetric(horizontal: 10),
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         child: Text(
           categoryName,
           style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: selectedCategoryIndex == itemIndex
-                  ? Color(0xFF25d8bf)
-                  : Colors.grey),
+            fontWeight: FontWeight.bold,
+            color: selectedCategoryIndex == itemIndex
+                ? Color(0xFF25d8bf)
+                : Colors.grey,
+          ),
         ),
       ),
       onTap: () {
@@ -126,14 +112,11 @@ class _HomePageState extends State<HomePage> {
         child: Scaffold(
           appBar: NeumorphicAppBar(
             color: Color(0xFF1ed1b4),
-//            color: Colors.grey[800],
             title: Center(
               child: NeumorphicText(
                 "Evolve Shop",
                 style: NeumorphicStyle(
-//                  color: Colors.grey[900],
                   color: Colors.grey[100],
-
                   boxShape: NeumorphicBoxShape.circle(),
                 ),
                 textStyle: NeumorphicTextStyle(
