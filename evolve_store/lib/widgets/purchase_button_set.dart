@@ -1,4 +1,3 @@
-
 import 'package:evolvestore/widgets/custom_neumorphic.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +12,7 @@ class PurchaseButtonSet extends StatefulWidget {
 
 class _PurchaseButtonSetState extends State<PurchaseButtonSet> {
   int productCount = 0;
+
   void increase() {
     setState(() {
       productCount++;
@@ -21,7 +21,7 @@ class _PurchaseButtonSetState extends State<PurchaseButtonSet> {
 
   void decrease() {
     setState(() {
-      if(productCount<=0) {
+      if (productCount <= 0) {
         return;
       }
       productCount--;
@@ -41,19 +41,32 @@ class _PurchaseButtonSetState extends State<PurchaseButtonSet> {
               width: 40,
               height: 40,
               child: Icon(Icons.remove, color: Colors.grey),
+              depth: 8,
+              negative: true,
             ),
-            onTap: (){
+            onTap: () {
               decrease();
             },
           ),
-          Text(productCount.toString(), style: TextStyle(fontWeight: FontWeight.bold),),
+          Container(
+              width: 40,
+              height: 15,
+              child: Center(
+                child: Text(
+                  productCount.toString(),
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              )),
           GestureDetector(
             child: CustomNeumorphic(
               width: 40,
               height: 40,
-              child: Icon(Icons.add,color: Colors.grey,),
+              child: Icon(
+                Icons.add,
+                color: Colors.grey,
+              ),
             ),
-            onTap: (){
+            onTap: () {
               increase();
             },
           ),
@@ -61,9 +74,13 @@ class _PurchaseButtonSetState extends State<PurchaseButtonSet> {
             child: CustomNeumorphic(
               width: 150,
               height: 40,
-              child: Center(child: Text("Buy now  >", style: TextStyle(color: Colors.grey),)),
+              child: Center(
+                  child: Text(
+                "Buy now  >",
+                style: TextStyle(color: Colors.grey),
+              )),
             ),
-            onTap: (){},
+            onTap: () {},
           ),
         ],
       ),
