@@ -25,13 +25,11 @@ class CircleProductImage extends StatelessWidget {
           intensity: 0.8,
           surfaceIntensity: 0.5,
           shape: NeumorphicShape.flat,
-//          color: Color(0xffe3edf4),
         lightSource: LightSource.bottom,
           color: Color(0xffe3ecf3),
         ),
         child: Container(
           padding: EdgeInsets.only(bottom: size.height * 0.07),
-//          margin: EdgeInsets.only(bottom: 30),
           width: size.width * 0.7,
           height: size.height * 0.4,
           color: Colors.transparent,
