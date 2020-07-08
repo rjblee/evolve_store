@@ -1,5 +1,6 @@
 import 'package:evolvestore/screens/product_detail.dart';
 import 'package:evolvestore/widgets/custom_neumorphic.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -24,33 +25,51 @@ class ProductList extends StatelessWidget {
               Image.network(
                 productItem["image"],
                 height: size.height * 0.3,
-                width: size.width * 0.6,
+                width: size.width * 0.68,
               ),
-              SizedBox(height: 14),
-              Text(
-                productItem["name"],
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "\$" + productItem["price"].toString(),
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Text(productItem["category"]),
-              Neumorphic(
-                padding: EdgeInsets.all(3),
-                style: NeumorphicStyle(
-                  color: Color(0xFF25d8bf),
-                  shape: NeumorphicShape.flat,
-                  depth: -10,
-                ),
-                child: Icon(
-                  Icons.search,
-                  color: Colors.white,
-                ),
+              SizedBox(height: 40),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        productItem["name"],
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "\$" + productItem["price"].toString(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
+                  ),
+
+//              Text(productItem["category"]),
+                  Neumorphic(
+                    margin: EdgeInsets.only(left: 25),
+                    padding: EdgeInsets.all(5),
+                    style: NeumorphicStyle(
+                      color: Color(0xFF25d8bf),
+                      shape: NeumorphicShape.flat,
+                      depth: -10,
+                    ),
+                    child: Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
