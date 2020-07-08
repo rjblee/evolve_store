@@ -235,12 +235,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-//_launchURL() async {
-//  const url = 'https://flutter.dev';
-//  if (await canLaunch(url)) {
-//    await launch(url);
-//  } else {
-//    throw 'Could not launch $url';
-//  }
-//}
