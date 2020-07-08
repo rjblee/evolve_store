@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:evolvestore/widgets/banner_box.dart';
 import 'package:evolvestore/widgets/custom_neumorphic.dart';
 import 'package:evolvestore/widgets/product_slide.dart';
 import 'package:flutter/material.dart';
@@ -102,6 +103,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return NeumorphicApp(
       theme: NeumorphicThemeData(
         baseColor: Color(0xFFf4faff),
@@ -155,7 +157,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          body: Column(
+          body: ListView(
             children: [
               Container(
                 height: 70,
@@ -177,6 +179,9 @@ class _HomePageState extends State<HomePage> {
               ProductList(
                 selectedCategoryItems: selectedCategoryItems,
               ),
+              BannerBox(text:"GEt 10% discount coupons!"),
+              BannerBox(text:"BUY 1 GET 1 FREE", gradation: [Colors.orange, Colors.deepOrange],),
+              BannerBox(text:"SUMMER SALE!!", gradation: [Colors.lightBlueAccent, Colors.blue],),
             ],
           ),
           bottomNavigationBar: Neumorphic(
@@ -218,3 +223,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
