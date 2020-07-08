@@ -11,7 +11,6 @@ class ProductPage extends StatelessWidget {
   ProductPage({this.productDetail});
 
   String productDes;
-//  productDetail
 
   @override
   Widget build(BuildContext context) {
