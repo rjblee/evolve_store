@@ -25,7 +25,7 @@ class CustomNeumorphic extends StatelessWidget {
       this.height,
       this.margin,
       this.alignment,
-      this.depth: 1,
+      this.depth:1,
       this.negative: false});
 
   List<BoxShadow> MakeShadow() {
