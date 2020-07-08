@@ -90,13 +90,13 @@ class ProductList extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height * 0.6,
+      height: size.height * 0.55,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: selectedCategoryItems.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            padding: EdgeInsets.symmetric(vertical: size.height * 0.05),
+            padding: EdgeInsets.only(bottom: 25, top: 15),
             child: makeProductList(selectedCategoryItems[index], context),
           );
         },
