@@ -1,5 +1,6 @@
 import 'package:evolvestore/widgets/custom_neumorphic.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PurchaseButtonSet extends StatefulWidget {
   const PurchaseButtonSet({
@@ -28,6 +29,16 @@ class _PurchaseButtonSetState extends State<PurchaseButtonSet> {
     });
   }
 
+  _launchURL() async {
+    const url = 'https://www.evolvebranding.ca';
+    if (await canLaunch(url)) {
+      await launch(url);
+      print(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,8 +52,8 @@ class _PurchaseButtonSetState extends State<PurchaseButtonSet> {
               width: 40,
               height: 40,
               child: Icon(Icons.remove, color: Colors.grey),
-              depth: 8,
-              negative: true,
+              depth: 7,
+              negative: false,
             ),
             onTap: () {
               decrease();
@@ -74,13 +85,20 @@ class _PurchaseButtonSetState extends State<PurchaseButtonSet> {
             child: CustomNeumorphic(
               width: 150,
               height: 40,
+              background: Color(0xFF25d8bf),
               child: Center(
-                  child: Text(
-                "Buy now  >",
-                style: TextStyle(color: Colors.grey),
-              )),
+                child: Text(
+                  "Buy Now  >",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
             ),
-            onTap: () {},
+            onTap: () {
+              _launchURL();
+            },
           ),
         ],
       ),
