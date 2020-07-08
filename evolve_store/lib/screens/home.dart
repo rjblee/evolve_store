@@ -179,9 +179,15 @@ class _HomePageState extends State<HomePage> {
               ProductList(
                 selectedCategoryItems: selectedCategoryItems,
               ),
-              BannerBox(text:"GEt 10% discount coupons!"),
-              BannerBox(text:"BUY 1 GET 1 FREE", gradation: [Colors.orange, Colors.deepOrange],),
-              BannerBox(text:"SUMMER SALE!!", gradation: [Colors.lightBlueAccent, Colors.blue],),
+              BannerBox(text: "10% DISCOUNT!"),
+              BannerBox(
+                text: "BUY 1 GET 1 FREE",
+                gradation: [Colors.orange, Colors.deepOrange],
+              ),
+              BannerBox(
+                text: "SUMMER SALE!",
+                gradation: [Colors.lightBlueAccent, Colors.blue],
+              ),
             ],
           ),
           bottomNavigationBar: Neumorphic(
@@ -223,4 +229,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
