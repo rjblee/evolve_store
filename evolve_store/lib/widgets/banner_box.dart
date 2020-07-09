@@ -5,15 +5,16 @@ class BannerBox extends StatelessWidget {
   List<Color> gradation;
   String text;
 
-  BannerBox({this.gradation:const [Colors.greenAccent, Colors.green], this.text,});
+  BannerBox({
+    this.gradation: const [Colors.greenAccent, Color(0xFF25d8bf)],
+    this.text,
+  });
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Neumorphic(
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-
         style: NeumorphicStyle(
-
           depth: 5,
         ),
         child: Container(
