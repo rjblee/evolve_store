@@ -179,6 +179,17 @@ class _HomePageState extends State<HomePage> {
               ProductList(
                 selectedCategoryItems: selectedCategoryItems,
               ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text(
+                  "Promotions",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[800],
+                  ),
+                ),
+              ),
               BannerBox(text: "10% DISCOUNT!"),
               BannerBox(
                 text: "BUY 1 GET 1 FREE",
@@ -216,7 +227,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     CustomNeumorphic(
                       background: Colors.grey[100],
-                      child: Icon(Icons.add, color: Colors.grey[700]),
+                      child: Icon(Icons.person, color: Colors.grey[700]),
                       padding: EdgeInsets.all(16),
                     ),
                   ],

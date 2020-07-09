@@ -17,7 +17,7 @@ class ProductList extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: 15),
         child: Container(
           padding: EdgeInsets.symmetric(
-            horizontal: 0,
+            horizontal: 20,
             vertical: 15,
           ),
           child: Column(
@@ -25,50 +25,63 @@ class ProductList extends StatelessWidget {
               Image.network(
                 productItem["image"],
                 height: size.height * 0.3,
-                width: size.width * 0.68,
+                width: size.width * 0.6,
               ),
               SizedBox(height: 40),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        productItem["name"],
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
+                  Container(
+                    width: (size.width * 0.6) - 20,
+                    child: Text(
+                      productItem["name"],
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: (size.width * 0.6) - 20,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: size.width * 0.3,
+                          child: Text(
+                            "\$" + productItem["price"].toString(),
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
                         ),
-                        textAlign: TextAlign.left,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "\$" + productItem["price"].toString(),
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                        Neumorphic(
+//                        margin: EdgeInsets.only(left: 130),
+                          padding: EdgeInsets.all(5),
+                          style: NeumorphicStyle(
+                            color: Color(0xFF25d8bf),
+                            shape: NeumorphicShape.flat,
+                            depth: -10,
+                          ),
+                          child: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
 
 //              Text(productItem["category"]),
-                  Neumorphic(
-                    margin: EdgeInsets.only(left: 25),
-                    padding: EdgeInsets.all(5),
-                    style: NeumorphicStyle(
-                      color: Color(0xFF25d8bf),
-                      shape: NeumorphicShape.flat,
-                      depth: -10,
-                    ),
-                    child: Icon(
-                      Icons.search,
-                      color: Colors.white,
-                    ),
-                  ),
                 ],
               ),
             ],

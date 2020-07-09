@@ -29,9 +29,7 @@ class _OptionBoxState extends State<OptionBox> {
             height: 25,
             color: color,
           ),
-          onPressed: (){
-
-          },
+          onPressed: () {},
         ),
       );
     }
@@ -44,7 +42,7 @@ class _OptionBoxState extends State<OptionBox> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Choose the option:",
+                "Choose an option:",
                 style: TextStyle(color: Colors.grey, fontSize: 16),
               ),
               GestureDetector(
@@ -67,45 +65,43 @@ class _OptionBoxState extends State<OptionBox> {
         CustomNeumorphic(
           radius: 10,
           padding: EdgeInsets.all(15),
-          child:
-          isScroll?
-          Wrap(
-            children: [
-              optionBoxDetail(color: Colors.blueAccent),
-              optionBoxDetail(color: Colors.greenAccent),
-              optionBoxDetail(color: Colors.deepOrangeAccent),
-              optionBoxDetail(color: Colors.black),
-              optionBoxDetail(color: Colors.blueAccent),
-              optionBoxDetail(color: Colors.greenAccent),
-              optionBoxDetail(color: Colors.blueAccent),
-              optionBoxDetail(color: Colors.greenAccent),
-              optionBoxDetail(color: Colors.deepOrangeAccent),
-              optionBoxDetail(color: Colors.black),
-              optionBoxDetail(color: Colors.blueAccent),
-              optionBoxDetail(color: Colors.greenAccent),
-            ],
-          )
-              :
-          Container(
-            height: 30,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                optionBoxDetail(color: Colors.blueAccent),
-                optionBoxDetail(color: Colors.greenAccent),
-                optionBoxDetail(color: Colors.deepOrangeAccent),
-                optionBoxDetail(color: Colors.black),
-                optionBoxDetail(color: Colors.blueAccent),
-                optionBoxDetail(color: Colors.greenAccent),
-                optionBoxDetail(color: Colors.blueAccent),
-                optionBoxDetail(color: Colors.greenAccent),
-                optionBoxDetail(color: Colors.deepOrangeAccent),
-                optionBoxDetail(color: Colors.black),
-                optionBoxDetail(color: Colors.blueAccent),
-                optionBoxDetail(color: Colors.greenAccent),
-              ],
-            ),
-          ),
+          child: isScroll
+              ? Wrap(
+                  children: [
+                    optionBoxDetail(color: Colors.blueAccent),
+                    optionBoxDetail(color: Colors.greenAccent),
+                    optionBoxDetail(color: Colors.deepOrangeAccent),
+                    optionBoxDetail(color: Colors.black),
+                    optionBoxDetail(color: Colors.blueAccent),
+                    optionBoxDetail(color: Colors.greenAccent),
+                    optionBoxDetail(color: Colors.blueAccent),
+                    optionBoxDetail(color: Colors.greenAccent),
+                    optionBoxDetail(color: Colors.deepOrangeAccent),
+                    optionBoxDetail(color: Colors.black),
+                    optionBoxDetail(color: Colors.blueAccent),
+                    optionBoxDetail(color: Colors.greenAccent),
+                  ],
+                )
+              : Container(
+                  height: 30,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      optionBoxDetail(color: Colors.blueAccent),
+                      optionBoxDetail(color: Colors.greenAccent),
+                      optionBoxDetail(color: Colors.deepOrangeAccent),
+                      optionBoxDetail(color: Colors.black),
+                      optionBoxDetail(color: Colors.blueAccent),
+                      optionBoxDetail(color: Colors.greenAccent),
+                      optionBoxDetail(color: Colors.blueAccent),
+                      optionBoxDetail(color: Colors.greenAccent),
+                      optionBoxDetail(color: Colors.deepOrangeAccent),
+                      optionBoxDetail(color: Colors.black),
+                      optionBoxDetail(color: Colors.blueAccent),
+                      optionBoxDetail(color: Colors.greenAccent),
+                    ],
+                  ),
+                ),
         )
       ],
     );

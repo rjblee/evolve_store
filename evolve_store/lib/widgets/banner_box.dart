@@ -10,17 +10,15 @@ class BannerBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Neumorphic(
-        padding: EdgeInsets.all(0),
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-
         style: NeumorphicStyle(
           depth: 5,
         ),
         child: Container(
           height: 70,
+          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(9),
+            borderRadius: BorderRadius.circular(10),
             gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,

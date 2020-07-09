@@ -16,15 +16,15 @@ class Opening extends StatelessWidget {
           GestureDetector(
             child: Neumorphic(
               style: NeumorphicStyle(
-                color: Colors.grey,
+                color: Colors.white,
               ),
-              margin: EdgeInsets.symmetric(horizontal: 80),
+              margin: EdgeInsets.only(top: 100, right: 90, left: 90),
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Center(
                 child: Text(
-                  'ENTER',
+                  'Welcome',
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -35,8 +35,7 @@ class Opening extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => HomePage(),
-                  )
-              );
+                  ));
             },
           ),
         ],

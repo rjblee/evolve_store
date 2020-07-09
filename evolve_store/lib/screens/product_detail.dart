@@ -47,6 +47,7 @@ class ProductPage extends StatelessWidget {
                       scrollDirection: Axis.vertical,
                       children: [
                         OptionBox(),
+                        SizedBox(height: 12),
                         Textarea(title: name, des: description),
                       ],
                     ),
