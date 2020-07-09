@@ -5,7 +5,10 @@ class BannerBox extends StatelessWidget {
   List<Color> gradation;
   String text;
 
-  BannerBox({this.gradation:const [Colors.greenAccent, Colors.green], this.text,});
+  BannerBox({
+    this.gradation: const [Colors.greenAccent, Color(0xFF1ed1b4)],
+    this.text,
+  });
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -14,7 +17,7 @@ class BannerBox extends StatelessWidget {
           depth: 5,
         ),
         child: Container(
-          height: 70,
+          height: 60,
           margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           alignment: Alignment.center,
           decoration: BoxDecoration(
