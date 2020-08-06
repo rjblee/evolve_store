@@ -28,4 +28,4 @@ samples, guidance on mobile development, and a full API reference.
 - Cloud Firestore
 
 ## Screenshots
-<img src="https://github.com/sunny-jang/evolve_store/blob/master/evolve_store/screenshots/Screenshot_1594252985.png?raw=true">
+<img src="https://github.com/sunny-jang/evolve_store/blob/master/evolve_store/screenshots/Screenshot_1594252985.png?raw=true" width="300">
