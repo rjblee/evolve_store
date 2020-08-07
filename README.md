@@ -30,4 +30,4 @@ samples, guidance on mobile development, and a full API reference.
 ## Screenshots
 <img src="https://github.com/sunny-jang/evolve_store/blob/master/evolve_store/screenshots/Screenshot_1594252985.png?raw=true" width="300">
 
-<img src="https://github.com/sunny-jang/evolve_store/blob/master/evolve_store/screenshots/Screenshot_1594253003.png?raw=true" width="300"><img src="https://github.com/sunny-jang/evolve_store/blob/master/evolve_store/screenshots/Screenshot_1594253168.png?raw=true" width="300">
+<img src="https://github.com/sunny-jang/evolve_store/blob/master/evolve_store/screenshots/Screenshot_1594253003.png?raw=true" width="300"> <img src="https://github.com/sunny-jang/evolve_store/blob/master/evolve_store/screenshots/Screenshot_1594253168.png?raw=true" width="300">
