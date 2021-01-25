@@ -1,7 +1,7 @@
 # Evolve Store iOS/Android Application
 
 ## Description
-Evolve Store application is a mobile application for both iOS and Android devices.
+The Evolve Store mobile application is a mobile application built with Flutter and Dart for both iOS and Android devices.
 Evolve Store is a mobile catalogue of the company Evolve Branding's items and goods that can be purchased through the Evolve Branding website.
 
 ## Getting Started
